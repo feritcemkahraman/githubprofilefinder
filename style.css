@@ -63,7 +63,9 @@ body {
 
 .card img {
   width: 140px;
+  height: 140px;
   border-radius: 50%;
+  border: 5px solid rgb(100, 42, 138);
 }
 
 .card h2 {
@@ -74,4 +76,43 @@ body {
 .card p {
   margin: 10px auto;
   max-width: 330px;
+}
+
+.user-info ul {
+  list-style: none;
+  padding-bottom: 15px;
+  margin-top: 2rem;
+  max-width: 400px;
+}
+
+.user-info ul li {
+  padding-bottom: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+
+.user-info ul li strong {
+  font-size: 0.9rem;
+  margin-left: 3px;
+  color: black;
+}
+
+.repos {
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  max-width: 400px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+.repos:hover {
+  color: white;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0 05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
 }
