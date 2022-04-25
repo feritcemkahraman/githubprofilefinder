@@ -68,12 +68,12 @@ body {
   border: 5px solid rgb(100, 42, 138);
 }
 
-.card h2 {
+.user-info h2 {
   font-size: 20px;
   font-weight: 600;
 }
 
-.card p {
+.user-info p {
   margin: 10px auto;
   max-width: 330px;
 }

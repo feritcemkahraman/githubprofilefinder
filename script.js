@@ -9,10 +9,21 @@ async function getUser(username) {
     const { data } = await axios.get(APIURL + username);
 
     createUserCard(data);
+    getRepos(username);
   } catch (error) {
     if (error.response.status === 404) {
       createErrorCard("Bu Kullanıcı GitHub'da Mevcut Değil");
     }
+  }
+}
+
+async function getRepos(username) {
+  try {
+    const { data } = await axios.get(APIURL + username + "/repos?sort=created");
+
+    addReposToCard(data);
+  } catch (error) {
+    createErrorCard("Hiçbir Proje Yayınlanmamış");
   }
 }
 
@@ -36,14 +47,11 @@ function createUserCard(user) {
         <li>${user.followers} <strong>Takipçi</strong></li>
         <li>${user.following} <strong>Takip Edilen</strong></li>
         <li>${user.public_repos} <strong>Repository</strong></li>
-        <div id="repos">
-          <a href="#" class="repos">Repo 1</a>
-          <a href="#" class="repos">Repo 2</a>
-          <a href="#" class="repos">Repo 3</a>
+        </ul>
+        <div id="reposList">
+          
         </div>
-      </ul>
-    </div>
-  </div>
+     </div>
     `;
   main.innerHTML = cardHTML;
 }
@@ -57,6 +65,20 @@ function createErrorCard(error) {
     </div>
   `;
   main.innerHTML = cardHTML;
+}
+
+function addReposToCard(repos) {
+  const reposEl = document.getElementById("reposList");
+
+  repos.slice(0, 8).forEach((repo) => {
+    const repoEl = document.createElement("a");
+    repoEl.classList.add("repos");
+    repoEl.href = repo.html_url;
+    repoEl.target = "_blank";
+    repoEl.innerText = repo.name;
+
+    reposEl.appendChild(repoEl);
+  });
 }
 
 form.addEventListener("submit", (e) => {
