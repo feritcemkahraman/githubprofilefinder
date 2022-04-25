@@ -70,7 +70,7 @@ function createErrorCard(error) {
 function addReposToCard(repos) {
   const reposEl = document.getElementById("reposList");
 
-  repos.slice(0, 8).forEach((repo) => {
+  repos.slice(0, 5).forEach((repo) => {
     const repoEl = document.createElement("a");
     repoEl.classList.add("repos");
     repoEl.href = repo.html_url;

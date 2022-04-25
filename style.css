@@ -12,12 +12,13 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
+
   margin: 0;
 }
 
@@ -50,7 +51,8 @@ body {
 
 .card {
   width: 100%;
-  max-width: 440px;
+  max-height: 600px;
+  max-width: 500px;
   color: rgb(0, 0, 0);
   text-align: center;
   padding: 50px 35px;
@@ -90,6 +92,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   color: rgb(255, 255, 255);
+  margin-left: 1.5rem;
 }
 
 .user-info ul li strong {
@@ -99,13 +102,15 @@ body {
 }
 
 .repos {
-  padding: 12px;
+  padding: 5px 10px;
   text-decoration: none;
   color: black;
   max-width: 400px;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  margin-right: 8px;
   display: inline-block;
+  flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   transition: 0.4s;
